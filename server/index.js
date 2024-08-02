@@ -1,4 +1,5 @@
-require('dotenv').config();
+// require('dotenv').config();
+import 'dotenv/config';
 console.log(process.env);
 const express = require('express');
 const port = process.env.PORT;
