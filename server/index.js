@@ -1,5 +1,4 @@
 require('dotenv').config();
-console.log(process.env);
 const express = require('express');
 const port = process.env.PORT;
 const staticMiddleware = require('./static-middleware');
