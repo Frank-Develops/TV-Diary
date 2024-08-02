@@ -16,19 +16,19 @@ const jwt = require('jsonwebtoken');
 //   password: 'test',
 //   database: 'postgres'
 // });
-// const db = new pg.Pool({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// });
 const db = new pg.Pool({
-  host: 'cb5ajfjosdpmil.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
-  user: 'uf1q4jbs1rffq5',
-  port: 5432,
-  password: 'pe3ef95dfdbd7080634473a7ca9328fa40022d0e5903bd6ba7b58d465c5d20b24',
-  database: 'd94ies7k6nujt4'
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
+// const db = new pg.Pool({
+//   host: 'cb5ajfjosdpmil.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
+//   user: 'uf1q4jbs1rffq5',
+//   port: 5432,
+//   password: 'pe3ef95dfdbd7080634473a7ca9328fa40022d0e5903bd6ba7b58d465c5d20b24',
+//   database: 'd94ies7k6nujt4'
+// });
 
 app.use(staticMiddleware);
 app.use(express.json());
