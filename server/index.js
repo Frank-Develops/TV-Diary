@@ -58,10 +58,10 @@ app.listen(process.env.PORT, () => {
 app.use(staticMiddleware);
 app.use(express.json());
 
-app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(`express server listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   // eslint-disable-next-line no-console
+//   console.log(`express server listening on port ${port}`);
+// });
 
 app.post('/api/users/sign-up', (req, res, next) => {
 
