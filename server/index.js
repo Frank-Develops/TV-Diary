@@ -1,5 +1,7 @@
-require('dotenv/config');
+require('dotenv').config();
+console.log(process.env);
 const express = require('express');
+const port = process.env.PORT;
 const staticMiddleware = require('./static-middleware');
 const app = express();
 const argon2 = require('argon2');
@@ -7,39 +9,24 @@ const pg = require('pg');
 const ClientError = require('./client-error');
 const authorizationMiddleware = require('./authorization-middleware');
 const jwt = require('jsonwebtoken');
-const db = new pg.Pool({
+
+const { Client } = require('pg');
+
+const db = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
 });
 
-app.use(staticMiddleware);
-app.use(express.json());
-
-app.listen(process.env.PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`express server listening on port ${process.env.PORT}`);
-});
-
-// require('dotenv').config();
-// console.log(process.env);
-// const express = require('express');
-// const port = process.env.PORT;
-// const staticMiddleware = require('./static-middleware');
-// const app = express();
-// const argon2 = require('argon2');
-// const pg = require('pg');
-// const ClientError = require('./client-error');
-// const authorizationMiddleware = require('./authorization-middleware');
-// const jwt = require('jsonwebtoken');
-// // const db = new pg.Pool({
-// //   host: 'localhost',
-// //   user: 'postgres',
-// //   port: 5432,
-// //   password: 'test',
-// //   database: 'postgres'
-// // });
+db.connect();
+// const db = new pg.Pool({
+//   host: 'localhost',
+//   user: 'postgres',
+//   port: 5432,
+//   password: 'test',
+//   database: 'postgres'
+// });
 // const db = new pg.Pool({
 //   connectionString: process.env.DATABASE_URL,
 //   //issue is related to database_url
@@ -47,21 +34,21 @@ app.listen(process.env.PORT, () => {
 //     rejectUnauthorized: false
 //   }
 // });
-// // const db = new pg.Pool({
-// //   host: 'cb5ajfjosdpmil.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
-// //   user: 'uf1q4jbs1rffq5',
-// //   port: 5432,
-// //   password: 'pe3ef95dfdbd7080634473a7ca9328fa40022d0e5903bd6ba7b58d465c5d20b24',
-// //   database: 'd94ies7k6nujt4'
-// // });
+// const db = new pg.Pool({
+//   host: 'cb5ajfjosdpmil.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
+//   user: 'uf1q4jbs1rffq5',
+//   port: 5432,
+//   password: 'pe3ef95dfdbd7080634473a7ca9328fa40022d0e5903bd6ba7b58d465c5d20b24',
+//   database: 'd94ies7k6nujt4'
+// });
 
 app.use(staticMiddleware);
 app.use(express.json());
 
-// app.listen(port, () => {
-//   // eslint-disable-next-line no-console
-//   console.log(`express server listening on port ${port}`);
-// });
+app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`express server listening on port ${port}`);
+});
 
 app.post('/api/users/sign-up', (req, res, next) => {
 
