@@ -1,0 +1,957 @@
+body {
+  background-color: #115173;
+  margin: 0 0;
+  position: relative;
+}
+
+header {
+  background-color: #053f5e;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.site-header {
+  font-size: 2em;
+}
+
+main {
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+footer {
+  background-color: #053f5e;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.tv-icon {
+  color: #ffd700;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.header-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  color: #ffd700;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+h4 {
+  font-family: 'roboto', sans-serif;
+  font-weight: 400;
+  color: #ffd700;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+}
+
+.main-header {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.image-holder-row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.image-holder-row > img {
+  height: 200px;
+}
+
+.search-button {
+  background-color: #ffd700;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.search-bar {
+  height: 38px;
+  width: 250px;
+  margin-left: 20px;
+  visibility: visible;
+}
+
+.search-form {
+  margin-top: 7px;
+}
+
+.search-form-header {
+  display: none;
+}
+
+.search-result {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #053f5e;
+  color: #ffd700;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  align-items: center;
+}
+
+.search-image {
+  height: 125px;
+}
+
+.search-result > ul {
+  width: 50%;
+}
+
+.list-results {
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.summary {
+  font-size: 15px;
+  color: #ffd700;
+  font-family: 'roboto', sans-serif;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.show-info {
+  position: relative;
+}
+
+.show {
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.below-title {
+  position: relative;
+}
+
+.actor {
+  margin-top: 2px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffd700;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+.character {
+  margin-bottom: 2px;
+  font-family: 'roboto', sans-serif;
+  font-size: 14px;
+  color: #ffd700;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+.cast-image {
+  height: 125px;
+  align-self: center;
+}
+
+.cast-member {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cast-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.show-image {
+  height: 150px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.show-header {
+  margin-left: 10px;
+  margin-bottom: 3px;
+  margin-top: 8px;
+}
+
+.episodes-link {
+  font-size: 22px;
+  background-color: #053f5e;
+  position: absolute;
+  left: 140px;
+  top: 15px;
+  color: #ffd700;
+  font-family: 'Work Sans', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.summary-header {
+  color: #ffd700;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.premiere-date {
+  margin-left: 10px;
+}
+
+.episodes-list {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #053f5e;
+  color: #ffd700;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  align-items: flex-start;
+  position: relative;
+}
+
+.episodes-list-image {
+  width: 150px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.episode-title {
+  padding-left: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+  margin-top: 5px;
+}
+
+.episode-date {
+  position: absolute;
+  right: 10px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.list-button-container {
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  display: flex;
+  align-items: flex-end;
+  width: 25%;
+}
+
+.list-button-container > button {
+  width: 50%;
+  background-color: #ffd700;
+  height: 40px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 3px;
+}
+
+.episodes-list-header {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.episode-button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.episode-button-container > button {
+  width: 50%;
+  background-color: #ffd700;
+  height: 40px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.episode-image-holder {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.episode-image-holder > img {
+  width: 345px;
+}
+
+.episode-header {
+  font-family: 'Work Sans', sans-serif;
+  color: #ffd700;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+.episode-details {
+  color: #ffd700;
+  font-family: 'roboto', sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
+
+.app-drawer {
+  background-color: #ffd700;
+  width: 300px;
+  min-height: 100vh;
+  position: fixed;
+  top: 48px;
+  left: 0;
+  z-index: 1;
+  padding-left: 2rem;
+}
+
+.app-drawer-links > a {
+  margin-top: 20px;
+  display: block;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 40px;
+  color: #053f5e;
+  font-weight: 600;
+}
+
+.watchlist-result {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 140px;
+  background-color: #053f5e;
+  color: #ffd700;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  align-items: flex-start;
+  position: relative;
+}
+
+.watch-show-title {
+  margin-left: 5px;
+  padding: 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.watch-episode-title {
+  margin-left: 5px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.watchlist-button-container {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: flex;
+  align-items: flex-end;
+  width: 25%;
+}
+
+.watchlist-button-container > button {
+  width: 50%;
+  background-color: #ffd700;
+  height: 30px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.watchlist-image-holder {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.watchlist-episode-info {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.delete-modal {
+  background-color: #053f5e;
+  color: #ffd700;
+  width: 300px;
+  height: 300px;
+  z-index: 2;
+  text-align: center;
+  font-family: 'roboto', sans-serif;
+}
+
+.modal-container {
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #11517370;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal-buttons {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-modal-buttons > button,
+.log-modal-buttons > button,
+.network-error-buttons > button {
+  width: 30%;
+  background-color: #ffd700;
+  height: 50px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+.star-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.log-modal-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.diary-episode-info {
+  width: 25%;
+  margin-top: 5px;
+}
+
+.diary-rating {
+  width: 33%;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 130px;
+  align-items: flex-end;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.diary-rating > button {
+  background-color: #ffd700;
+  height: 30px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.log-date {
+  font-size: 14px;
+  padding: 0;
+}
+
+.stars-desktop {
+  display: none;
+}
+
+.registration {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 125px;
+}
+
+.registration-header {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  color: #ffd700;
+}
+
+.registration-fields {
+  font-family: 'roboto', sans-serif;
+  font-weight: 400;
+  color: #ffd700;
+}
+
+.registration-button-holder {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.registration-button-holder > button {
+  width: 40%;
+  background-color: #ffd700;
+  height: 40px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 3px;
+}
+
+.stars-mini {
+  display: none;
+}
+
+a:hover,
+button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.image-holder-row > img:hover {
+  cursor: pointer;
+}
+
+a:hover {
+  color: #ccad00;
+}
+
+button:hover {
+  background-color: #ccad00;
+}
+
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  border: 9px solid #f3f3f3;
+  border-top: 10px solid #ffd700;
+  border-radius: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite linear;
+  z-index: 1;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.network-error-buttons {
+  margin-top: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.network-error-header {
+  margin-top: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+label[for="search"] {
+  font-size: 0%;
+}
+
+.app-drawer-links > a:hover {
+  text-decoration: underline;
+}
+
+.tv-icon:hover {
+  color: #ccad00;
+}
+
+@media screen and (max-width: 320px) and (orientation: portrait) {
+  .search-bar {
+    width: 200px;
+  }
+
+  .watch-show-title {
+    font-size: 14px;
+  }
+
+  .watch-episode-title {
+    font-size: 12px;
+  }
+
+  .header-text {
+    font-size: 26px;
+  }
+
+  .image-holder-row > img {
+    height: 135px;
+  }
+
+  .registration {
+    margin-top: 75px;
+  }
+
+  .episode-title {
+    font-size: 14px;
+  }
+
+  .episode-date {
+    font-size: 12px;
+  }
+
+  .episodes-list-image {
+    height: 140px;
+    width: 120px;
+  }
+
+  .stars-mini {
+    display: inline;
+  }
+
+  .stars-mobile {
+    display: none;
+  }
+
+  .app-drawer {
+    top: 42px;
+  }
+}
+
+@media screen and (max-width: 568px) and (orientation: landscape) {
+  .search-bar {
+    width: 450px;
+  }
+
+  .search-form-header {
+    display: hidden;
+  }
+
+  .search-form {
+    display: inline;
+  }
+
+  .image-holder-row {
+    margin-top: 25px;
+  }
+
+  .main-header {
+    font-size: 20px;
+  }
+
+  .app-drawer-links > a {
+    font-size: 20px;
+  }
+
+  .registration {
+    margin-top: 10px;
+  }
+
+  .stars-mini {
+    display: none;
+  }
+
+  .diary-rating {
+    margin-left: 75px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 812px) {
+  header {
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .search-form {
+    display: none;
+  }
+
+  .search-form-header {
+    display: inline;
+  }
+
+  .site-header {
+    font-size: 42px;
+    margin-left: 70px;
+  }
+
+  .search-button {
+    margin-right: 10px;
+  }
+
+  .tv-icon {
+    margin-top: 16px;
+  }
+
+  .registration {
+    margin-top: 5px;
+  }
+
+  .diary-rating {
+    margin-left: 160px;
+  }
+
+  .app-drawer {
+    top: 79px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .image-holder-row > img {
+    height: 300px;
+  }
+
+  header {
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .site-header {
+    font-size: 42px;
+    margin-left: 70px;
+  }
+
+  .main-header {
+    font-size: 34px;
+  }
+
+  .search-form {
+    display: none;
+  }
+
+  .search-form-header {
+    display: inline;
+  }
+
+  .tv-icon {
+    top: 24px;
+    left: 10px;
+  }
+
+  .search-image {
+    height: 150px;
+  }
+
+  .episode-title {
+    font-size: 26px;
+  }
+
+  .show-image {
+    height: 250px;
+    margin-left: 20px;
+  }
+
+  .summary {
+    font-size: 18px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .premiere-date {
+    margin-left: 20px;
+  }
+
+  .cast-member {
+    width: 10%;
+  }
+
+  .show-header {
+    margin-left: 20px;
+  }
+
+  .cast-image {
+    height: 150px;
+  }
+
+  .episodes-link {
+    left: 225px;
+  }
+
+  .summary-header {
+    margin-left: 20px;
+  }
+
+  .episodes-list {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .episode-date {
+    position: relative;
+    font-size: 20px;
+  }
+
+  .list-button-container {
+    height: 100%;
+    align-items: center;
+    bottom: 0;
+  }
+
+  .list-button-container > button,
+  .watchlist-button-container > button {
+    height: 80%;
+    font-size: 20px;
+    margin-right: 14px;
+  }
+
+  .episodes-list-header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .episode-image-holder > img {
+    width: 600px;
+  }
+
+  .episode-image-holder {
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-left: 10px;
+  }
+
+  .episode-image-holder > p {
+    margin-left: 50px;
+  }
+
+  .episode-button-container > button {
+    width: 25%;
+    height: 60px;
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+
+  .episode-info {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .episode-header {
+    margin-top: 50px;
+  }
+
+  .watchlist-button-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+  }
+
+  .watch-episode-title {
+    font-size: 20px;
+  }
+
+  .watch-show-title {
+    font-size: 26px;
+  }
+
+  .episodes-list-image {
+    width: 250px;
+    height: 140px;
+  }
+
+  .watchlist-episode-info {
+    margin-top: 14px;
+    margin-left: 14px;
+  }
+
+  .app-drawer {
+    top: 79px;
+  }
+
+  .delete-modal {
+    width: 500px;
+    height: 500px;
+    font-size: 28px;
+  }
+
+  .delete-modal-buttons {
+    margin-top: 175px;
+  }
+
+  .diary-rating {
+    width: 60%;
+  }
+
+  .stars-mobile {
+    display: none;
+  }
+
+  .stars-desktop {
+    display: inline;
+  }
+
+  .log-date {
+    font-size: 20px;
+  }
+
+  .network-error-buttons {
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .network-error-header {
+    margin-top: 100px;
+  }
+
+  .search-button {
+    margin-right: 10px;
+  }
+}
