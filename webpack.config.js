@@ -37,7 +37,8 @@ module.exports = {
     watchContentBase: true,
     stats: 'minimal',
     proxy: {
-      '/api': `http://localhost:${process.env.PORT}`
+      // '/api': `http://localhost:${process.env.PORT}`
+      '/api': 'https://tvdiary-75894318ede6.herokuapp.com'
     }
   },
   performance: {
