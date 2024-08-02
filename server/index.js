@@ -8,12 +8,18 @@ const pg = require('pg');
 const ClientError = require('./client-error');
 const authorizationMiddleware = require('./authorization-middleware');
 const jwt = require('jsonwebtoken');
+// const db = new pg.Pool({
+//   host: 'localhost',
+//   user: 'postgres',
+//   port: 5432,
+//   password: 'test',
+//   database: 'postgres'
+// });
 const db = new pg.Pool({
-  host: 'localhost',
-  user: 'postgres',
-  port: 5432,
-  password: 'test',
-  database: 'postgres'
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 app.use(staticMiddleware);
