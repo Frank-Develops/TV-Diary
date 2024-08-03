@@ -295,12 +295,9 @@ export default class App extends React.Component {
         'X-Access-Token': localStorage.getItem('token')
       }
     })
-      .then(response => response.json())
       .then(episode => {
         this.setState({ calling: false });
-        let log = this.state.log;
-        log = this.state.log.concat(episode);
-        this.setState({ log });
+        this.getLog(this.state.user);
       })
       .catch(err => {
         this.networkError();
