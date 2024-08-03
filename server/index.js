@@ -234,6 +234,41 @@ app.delete('/api/log/:deleteId', (req, res) => {
     });
 });
 
+app.put('/api/log/:updateId', (req, res) => {
+  const updateId = parseInt(req.body.episodeToUpdate, 10);
+  const rating = req.body.rating;
+  if (!Number.isInteger(updateId) || updateId <= 0) {
+    res.status(400).json({
+      error: '"updateId" must be a positive integer'
+    });
+    return;
+  }
+  const sql = `
+    update log
+    set rating = $1
+    where "logId" =  $2
+    returning *;
+  `;
+  const params = [rating, updateId];
+  db.query(sql, params)
+    .then(result => {
+      const updateId = result.rows[0];
+      if (!updateId) {
+        res.status(404).json({
+          error: `Cannot find item with "updateId" ${updateId}`
+        });
+      } else {
+        res.status(204).json(updateId);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
+});
+
 app.post('/api/log', (req, res, next) => {
   const userId = req.user.userId;
   const { date, showName, episodeName, season, number, image, rating } = req.body;

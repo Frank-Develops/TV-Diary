@@ -40,6 +40,7 @@ export default class App extends React.Component {
     this.toggleCalling = this.toggleCalling.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     this.deleteFromLog = this.deleteFromLog.bind(this);
+    this.updateLog = this.updateLog.bind(this);
   }
 
   componentDidUpdate() {
@@ -283,6 +284,27 @@ export default class App extends React.Component {
       });
   }
 
+  updateLog(entryId, entry) {
+    this.setState({ calling: true });
+    const updateId = parseInt(entryId, 10);
+    fetch(`/api/log/${updateId}`, {
+      method: 'PUT',
+      body: JSON.stringify(entry),
+      headers: {
+        'Content-type': 'application/json',
+        'X-Access-Token': localStorage.getItem('token')
+      }
+    })
+      .then(episode => {
+        this.setState({ calling: false });
+        this.getLog(this.state.user);
+      })
+      .catch(err => {
+        this.networkError();
+        console.error(err);
+      });
+  }
+
   goToSignUp() {
     this.setState({ signIn: false });
     this.setState({ signUp: true });
@@ -396,7 +418,7 @@ export default class App extends React.Component {
         <Diary menu={this.openMenu} setSearchResults={this.setSearchResults} searchResults={this.state.searchResults} menuOpen={this.state.menuOpen === false} goHome={this.goHome} openWatchlist={this.openWatchlist}
           isWatchlistOpen={this.state.watchlistOpen} watchlist={this.state.watchlist} deleteFromWatchlist={this.deleteFromWatchlist} saveToLog={this.saveToLog} openLog={this.openLog} log={this.state.log}
           user={this.state.user} noResults={this.noResults} networkErrorState={this.state.networkError} tryAgain={this.networkErrorTryAgain} toggleCalling={this.toggleCalling}
-          calling={this.state.calling} networkError={this.networkError} closeMenu={this.closeMenu} deleteFromLog={this.deleteFromLog} />
+          calling={this.state.calling} networkError={this.networkError} closeMenu={this.closeMenu} deleteFromLog={this.deleteFromLog} updateLog={this.updateLog} />
         <AppDrawer menu={this.openMenu} menuOpen={this.state.menuOpen} openWatchlist={this.openWatchlist} goHome={this.goHome} openLog={this.openLog} signUp={this.goToSignUp}
           signIn={this.goToSignIn} user={this.state.user} signOut={this.signOut} />;
       </div>;
