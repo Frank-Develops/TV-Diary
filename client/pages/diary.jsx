@@ -47,7 +47,7 @@ class Diary extends React.Component {
       </header>
       <main onClick={this.props.closeMenu}>
       {this.state.logModalOpen === true &&
-          <LogModal toggleModal={this.toggleLogModal} episodeToUpdate={this.state.episodeToUpdate} updateLog={this.props.updateLog} />
+          <LogModal toggleModal={this.toggleLogModal} episodeToUpdate={this.state.episodeToUpdate} updateLog={this.props.updateLog} updateEpisode="true" />
         }
         {this.props.networkErrorState === true &&
           <NetworkError tryAgain={this.props.tryAgain} toggleCalling={this.props.toggleCalling} />
