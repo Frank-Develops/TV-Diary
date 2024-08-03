@@ -8,6 +8,7 @@ class LogModal extends React.Component {
     this.state = { modalOpen: true, rating: null };
     this.ratingChanged = this.ratingChanged.bind(this);
     this.saveToLog = this.saveToLog.bind(this);
+    this.updateLog = this.updateLog.bind(this);
   }
 
   render() {
@@ -26,6 +27,7 @@ class LogModal extends React.Component {
           <div className="log-modal-buttons">
             <button onClick={this.saveToLog} type="submit">Save To Log</button>
             <button onClick={this.props.toggleModal} type="button">Cancel</button>
+            <button onClick={this.updateLog} type="button">Update</button>
           </div>
         </div>
       </div >;
@@ -48,6 +50,17 @@ class LogModal extends React.Component {
     };
     this.props.toggleModal();
     this.props.saveToLog(log);
+  }
+
+  updateLog(event) {
+    console.log("update log calls");
+    const update = {
+      rating: this.state.rating,
+      episodeToUpdate: this.props.episodeToUpdate
+    };
+    console.log("Update: " + update.rating + " " + update.episodeToUpdate);
+    this.props.toggleModal();
+    this.props.updateLog(update.episodeToUpdate, update);
   }
 }
 

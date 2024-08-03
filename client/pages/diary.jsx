@@ -3,15 +3,17 @@ import SearchForm from './search';
 import ReactStars from 'react-stars';
 import NetworkError from './network-error';
 import DeleteModal from './delete-modal';
+import LogModal from './log-modal';
 
 class Diary extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { openModal: false, episodeToDelete: null, logModalOpen: false, episodeToLog: null };
+    this.state = { openModal: false, episodeToDelete: null, logModalOpen: false, episodeToLog: null, episodeToUpdate: null };
     this.openModal = this.openModal.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
-
+    this.openLogModal = this.openLogModal.bind(this);
+    this.toggleLogModal = this.toggleLogModal.bind(this);
   }
 
   render() {
@@ -26,6 +28,7 @@ class Diary extends React.Component {
           <ul className="watch-episode-title" value={episode['episode name']} > S{episode.season}E{episode.number} {episode['episode name']} </ul>
         </div>
         <div className="diary-rating">
+          <button onClick={this.openLogModal} disabled={this.props.calling === true} id={episode.logId} className="watchlist-delete-button" type="submit">Edit Rating</button>
           <button onClick={this.openModal} disabled={this.props.calling === true} id={episode.logId} className="watchlist-delete-button" type="submit">Delete</button>
           <ul className="log-date"> {episode.date}  </ul>
           <ReactStars className="stars-mini" count={5} size={20} color2={'#ffd700'} value={Number(episode.rating)} edit={false} />
@@ -43,6 +46,9 @@ class Diary extends React.Component {
         </div>
       </header>
       <main onClick={this.props.closeMenu}>
+      {this.state.logModalOpen === true &&
+          <LogModal toggleModal={this.toggleLogModal} episodeToUpdate={this.state.episodeToUpdate} updateLog={this.props.updateLog} />
+        }
         {this.props.networkErrorState === true &&
           <NetworkError tryAgain={this.props.tryAgain} toggleCalling={this.props.toggleCalling} />
         }
@@ -82,6 +88,26 @@ class Diary extends React.Component {
       this.setState({ episodeToDelete: null });
     } else {
       this.setState({ openModal: true });
+    }
+  }
+
+  openLogModal(event) {
+    // if (this.props.user === null) {
+    //   this.setState({ userLoggedIn: false });
+    //   return;
+    // }
+    const updateId = event.target.getAttribute('id');
+    console.log(updateId);
+    this.setState({ logModalOpen: true });
+    this.setState({ episodeToUpdate: updateId });
+    console.log(this.state.episodeToUpdate);
+  }
+
+  toggleLogModal() {
+    if (this.state.logModalOpen === true) {
+      this.setState({ logModalOpen: false });
+    } else {
+      this.setState({ logModalOpen: true });
     }
   }
 }
