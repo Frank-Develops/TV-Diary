@@ -237,10 +237,6 @@ app.delete('/api/log/:deleteId', (req, res) => {
 app.put('/api/log/:updateId', (req, res) => {
   const updateId = parseInt(req.body.episodeToUpdate, 10);
   const rating = req.body.rating;
-  console.log("updateId " + updateId);
-  console.log("rating " + rating);
-  // console.log(req.body);
-  // const { rating, updateId } = req.body;
   if (!Number.isInteger(updateId) || updateId <= 0) {
     res.status(400).json({
       error: '"updateId" must be a positive integer'

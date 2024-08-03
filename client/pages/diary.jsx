@@ -92,15 +92,9 @@ class Diary extends React.Component {
   }
 
   openLogModal(event) {
-    // if (this.props.user === null) {
-    //   this.setState({ userLoggedIn: false });
-    //   return;
-    // }
     const updateId = event.target.getAttribute('id');
-    console.log(updateId);
     this.setState({ logModalOpen: true });
     this.setState({ episodeToUpdate: updateId });
-    console.log(this.state.episodeToUpdate);
   }
 
   toggleLogModal() {

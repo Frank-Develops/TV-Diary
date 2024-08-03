@@ -53,12 +53,10 @@ class LogModal extends React.Component {
   }
 
   updateLog(event) {
-    console.log("update log calls");
     const update = {
       rating: this.state.rating,
       episodeToUpdate: this.props.episodeToUpdate
     };
-    console.log("Update: " + update.rating + " " + update.episodeToUpdate);
     this.props.toggleModal();
     this.props.updateLog(update.episodeToUpdate, update);
   }
